@@ -1,7 +1,7 @@
 {
   "name": "ember-cli-ambienx",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "1.0.0",
+  "description": "Background music for your website or app.",
   "keywords": [
     "ember-addon"
   ],
