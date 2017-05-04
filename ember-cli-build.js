@@ -1,6 +1,7 @@
 /*jshint node:true*/
 /* global require, module */
 var EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
+var Funnel = require('broccoli-funnel');
 
 module.exports = function(defaults) {
   var app = new EmberAddon(defaults, {
@@ -13,6 +14,17 @@ module.exports = function(defaults) {
     This build file does *not* influence how the addon or the app using it
     behave. You most likely want to be modifying `./index.js` or app's build file
   */
+  // app.import('node_modules/ambienx/Ambienx.js');
 
+
+   // var extraAssets = new Funnel('node_modules/ambienx', {
+   //    srcDir: '/',
+   //    include: ['Ambienx.js'],
+   //    destDir: '/assets/lib'
+   // });
+
+   app.import('bower_components/ambienx/ambienx.js');
+
+  // return app.toTree(extraAssets);
   return app.toTree();
 };

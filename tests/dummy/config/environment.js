@@ -20,7 +20,15 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    ambienx: {
+        audioSrc: 'music.mp3',
+        audioLoop: true,
+        autoplay: false,
+        enabledLoseFocus: true
     }
+
   };
 
   if (environment === 'development') {
