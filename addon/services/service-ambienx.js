@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Service.extend({
 
     init() {
+
         let self = this;
         self._super(...arguments);
 
@@ -26,6 +27,7 @@ export default Ember.Service.extend({
         }
 
     },
+
 
     /*------------------------------------*\
       `newAmbienx` OBJECT
