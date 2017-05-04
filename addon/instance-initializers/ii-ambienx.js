@@ -1,8 +1,10 @@
-export function initialize( applicationInstance ) {
+export function initialize( appInstance ) {
     // appInstance.inject('route', 'foo', 'service:foo');
 
+    appInstance.inject('component', 'serviceAmbienx', 'service:service-ambienx');
+
     // Access the bg-music.js service
-    const serviceAmbienx = applicationInstance.lookup('service:service-ambienx');
+    const serviceAmbienx = appInstance.lookup('service:service-ambienx');
 
 }
 
