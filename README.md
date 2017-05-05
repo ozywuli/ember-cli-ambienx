@@ -39,6 +39,12 @@ npm install ember-cli-bg-music --save
 yarn add ember-cli-bg-music
 ```
 
+After installing the Ember-Cli-Ambienx npm package, the addon will automatically install the bower package for [Ambienx.js](https://github.com/ozywuli/ambienx). Before the addon can work, in your `ember-cli-build.js` file you will have to import [Ambienx.js](https://github.com/ozywuli/ambienx) like this: 
+
+```js
+app.import('bower_components/ambienx/ambienx.js');
+```
+
 ## Setup
 
 In your Ember app's config/environment.js file, define a property called `ambienx`. It accepts an object with key/values that correspond to all the options available in [Ambienx.js](https://github.com/ozywuli/ambienx).
@@ -53,10 +59,31 @@ ambienx: {
     autoplay: false,
     enabledLoseFocus: true
 }
-``` 
+```
 
 Likewise, all [Ambienx.js](https://github.com/ozywuli/ambienx) methods are provided via a service called `serviceAmbienx`. This service by default is injected into all your components. If you want to use the `playAudio()` method, you can do so like this:
 
 ```js
 this.get('serviceAmbienx').playAudio();
 ```
+
+
+## Alternative Setup
+
+But you also have an option to initialize [Ambienx.js](https://github.com/ozywuli/ambienx) outside the environment.js file. All you need to do is access the Ember-Cli-Ambienx service and store the [Ambienx.js](https://github.com/ozywuli/ambienx) initialization in the `newAmbienx` property.
+
+For example you can initialize [Ambienx.js](https://github.com/ozywuli/ambienx) in an [instance initializer](https://guides.emberjs.com/v2.13.0/applications/initializers/) called `audio.js`:
+
+```js
+let serviceAmbienx = appInstance.lookup('service:service-ambienx');
+
+let newAmbienx = new Ambienx({
+    audioSrc: 'music.mp3',
+    audioLoop: true,
+    autoplay: false,
+    enabledLoseFocus: true
+});
+
+serviceAmbienx.newAmbienx = newAmbienx;
+```
+
