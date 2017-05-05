@@ -47,7 +47,7 @@ export default Ember.Service.extend({
     },
 
     fadeInAudio(options) {
-        this.get('newAmbienx').fadeInAudio(options);
+        this.get('newAmbienx').fadeInAudio();
     },
 
     fadeOutAudio(options) {

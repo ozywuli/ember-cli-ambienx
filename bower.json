@@ -1,4 +1,6 @@
 {
   "name": "ember-cli-ambienx",
-  "dependencies": {}
+  "dependencies": {
+    "ambienx": "*"
+  }
 }

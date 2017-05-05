@@ -18,6 +18,24 @@ export default Ember.Component.extend({layout,
         Ember.run.scheduleOnce('afterRender', function() {
             // self.get('serviceAmbienx').playAudio();
         });
+    },
+
+    actions: {
+        playAudio() {
+            this.get('serviceAmbienx').playAudio();
+        },
+        pauseAudio() {
+            this.get('serviceAmbienx').pauseAudio();
+        },
+        fadeInAudio() {
+            this.get('serviceAmbienx').fadeInAudio();
+        },
+        fadeOutAudio() {
+            this.get('serviceAmbienx').fadeOutAudio();
+        },
+        toggleFadeAudio() {
+            this.get('serviceAmbienx').toggleFadeAudio();
+        }
     }
 
 
