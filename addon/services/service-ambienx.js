@@ -40,26 +40,47 @@ export default Ember.Service.extend({
 
 
     /*------------------------------------*\
+      STATE
+    \*------------------------------------*/
+    isPlaying: false,
+    isPauseUserInitiated: false,
+
+
+    /*------------------------------------*\
+      INTERNAL METHODS
+    \*------------------------------------*/
+    checkPlayState() {
+        this.set('isPlaying', this.get('newAmbienx').ambienxState.isPlaying );
+        this.set('isPauseUserInitiated', this.get('newAmbienx').ambienxState.isPauseUserInitiated );
+    },
+
+
+    /*------------------------------------*\
       METHODS
     \*------------------------------------*/
     playAudio(options) {
         this.get('newAmbienx').playAudio(options);
+        this.checkPlayState();
     },
 
     pauseAudio(options) {
         this.get('newAmbienx').pauseAudio(options);
+        this.checkPlayState();
     },
 
     fadeInAudio(options) {
         this.get('newAmbienx').fadeInAudio();
+        this.checkPlayState();
     },
 
     fadeOutAudio(options) {
         this.get('newAmbienx').fadeOutAudio(options);
+        this.checkPlayState();
     },
 
     toggleFadeAudio(options) {
         this.get('newAmbienx').toggleFadeAudio(options);
+        this.checkPlayState();
     }
 
 });

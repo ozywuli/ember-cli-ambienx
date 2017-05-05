@@ -17,6 +17,11 @@ export default Ember.Component.extend({layout,
         let self = this;
         Ember.run.scheduleOnce('afterRender', function() {
             // self.get('serviceAmbienx').playAudio();
+
+            Ember.run.later(function() {
+                self.get('serviceAmbienx').pauseAudio({isPauseUserInitiated: false});
+            }, 1000);
+
         });
     },
 
