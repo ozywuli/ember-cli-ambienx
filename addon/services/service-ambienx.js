@@ -10,20 +10,24 @@ export default Ember.Service.extend({
         // GET ENVIRONMENT CONFIG DATA
         let configObject = Ember.getOwner(this).resolveRegistration('config:environment');
 
-        // INSTANTIATE `Ambienx` WITH OPTIONS FROM ENVIRONMENT/CONFIG.JS
-        let newAmbienx = new Ambienx({
-            audioSrc: configObject.ambienx.audioSrc,
-            audioLoop: configObject.ambienx.audioLoop,
-            autoPlay: configObject.ambienx.audioPlay,
-            enabledLoseFocus: configObject.ambienx.enabledLoseFocus
-        });
+        if (configObject.ambienx) {
 
-        // SET THE `newAmbienx` SERVICE KEY WITH THE INSTANTIATED `Ambienx` INSTANCE
-        self.set('newAmbienx', newAmbienx);
+            // INSTANTIATE `Ambienx` WITH OPTIONS FROM ENVIRONMENT/CONFIG.JS
+            let newAmbienx = new Ambienx({
+                audioSrc: configObject.ambienx.audioSrc,
+                audioLoop: configObject.ambienx.audioLoop,
+                autoPlay: configObject.ambienx.audioPlay,
+                enabledLoseFocus: configObject.ambienx.enabledLoseFocus
+            });
 
-        // AUTOPLAY IF TRUE
-        if (configObject.ambienx.autoplay) {
-            self.get('newAmbienx').playAudio();
+            // SET THE `newAmbienx` SERVICE KEY WITH THE INSTANTIATED `Ambienx` INSTANCE
+            self.set('newAmbienx', newAmbienx);
+
+            // AUTOPLAY IF TRUE
+            if (configObject.ambienx.autoplay) {
+                self.get('newAmbienx').playAudio();
+            }
+
         }
 
     },

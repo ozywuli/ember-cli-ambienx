@@ -22,12 +22,12 @@ module.exports = function(environment) {
       // when it is created
     },
 
-    ambienx: {
-        audioSrc: 'music.mp3',
-        audioLoop: true,
-        autoplay: false,
-        enabledLoseFocus: true
-    }
+    // ambienx: {
+    //     audioSrc: 'music.mp3',
+    //     audioLoop: true,
+    //     autoplay: false,
+    //     enabledLoseFocus: true
+    // }
 
   };
 
